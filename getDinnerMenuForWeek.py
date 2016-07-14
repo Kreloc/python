@@ -2,7 +2,6 @@
 # getDinnerSelection - Gets dinner selection for the week from list in script
 
 import random
-import calendar
 #Dictionary of dinners and their ingeredients
 dinner_ingredients = {
 'breakfast burritos': 'Eggs, tortillas(Burrito size), maple sausage, cheese, sour cream',
@@ -82,9 +81,10 @@ if 'Tacos' not in dinner_list:
 #print week menu plan
 dinner_menu = []
 print('Dinners this week')
-for dinner_choice in dinner_list:
+days_of_week = ("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")
+for i, dinner_choice in enumerate(dinner_list):
     try:
-        day = calendar.day_name[i-1]
+        day = days_of_week[i-1]
     except IndexError:
         day = "Anyday"
 
@@ -101,5 +101,4 @@ print('\nIngredients:')
 print('\n'.join(all_ingredients))
 
 #TODO: Format as shopping list with number of each item
-
 
