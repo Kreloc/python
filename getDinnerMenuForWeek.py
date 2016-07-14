@@ -2,59 +2,9 @@
 # getDinnerSelection - Gets dinner selection for the week from list in script
 
 import random
-#Define dinner options
-dinnerOptions = ['breakfast burritos',
-'chicken enchiladas',
-'fajitas',
-'kalua pork',
-'lasagna',
-'mac & cheese',
-'manicotti',
-'meatloaf',
-'pulled pork',
-'red beans with hammock',
-'ribs',
-'roasted chicken & veggies',
-'salmon chowder',
-'Shit on Rice',
-'Hamburger Pie',
-'Sloppy Joes',
-'Chicken drumsticks',
-'Teriyaki chicken burgers',
-'Chicken and Noodles',
-'Chicken and Green Beans',
-'Chicken pot pie',
-'Bbq chicken',
-'Pork chops',
-'Ham - spiral',
-'Hot dogs',
-'Chili dogs',
-'Frito Pie',
-'Taco salad',
-'Nachos',
-'Rib eye steak',
-'Chicken fried steak',
-'Tri tip sandwich',
-'Soup and grilled cheese sandwiches',
-'Pizza rolls',
-'Teriyaki meat with rice and broccoli',
-'Pot roast and vegetables',
-'Beef stew',
-'Breakfast for dinner',
-'Oven fried chicken',
-'Spaghetti',
-'Taco Dip',
-'Beer battered halibut',
-'Trout',
-'Blackened salmon',
-'Tacos',
-'Shrimp scampi',
-'White bean chicken chili',
-'Chicken wings']
-
-
+import calendar
 #Dictionary of dinners and their ingeredients
-dinnerIngredients = {
+dinner_ingredients = {
 'breakfast burritos': 'Eggs, tortillas(Burrito size), maple sausage, cheese, sour cream',
 'chicken enchiladas': 'Boneless skinless chicken, cheese, black olives (chopped), green onions, enchilada sauce mix, flour tortillas, tomato paste',
 'fajitas': 'Chicken/Steak meat, large onion, orange pepper, yellow pepper, refried beans, tortillas, shredded cheese, sour cream, salsa',
@@ -104,72 +54,51 @@ dinnerIngredients = {
 'White bean chicken chili': 'White beans, chicken meat, olive oil, onion (chopped), chicken stock, salsa verde, ground cumin, coriander, two jalapenos, salt, ground white pepper, white corn',
 'Chicken wings': 'Chicken wings'
     }
+#Define dinner options
+dinner_options = [x for x in dinner_ingredients.keys()]
 
-
-allIngredients = []
-dinnerList = []
-leftoverDaySet = False
-randomLeftoverNumber = random.randint(4, 6)
+all_ingredients = []
+dinner_list = []
+#leftover_day_set = False
+random_leftover_number = random.randint(4, 6)
 for i in range(0, 7):
-    if i == randomLeftoverNumber:
-        dinnerChoice = 'Leftovers'
-        leftoverDaySet = True
-    if leftoverDaySet == True:
-        #print('Dinner on ' + day + ' is ' + dinnerChoice)
-        leftoverDaySet = False
-        dinnerList.append(dinnerChoice)
-    else:
-        randomNumber = random.randint(0,(len(dinnerOptions) - 1))
-        dinnerChoice = dinnerOptions[randomNumber]
-        dinnerList.append(dinnerChoice)
-        #Remove dinner selection from list before making next selection
-        dinnerOptions.remove(dinnerChoice)
+    if i == random_leftover_number:
+        dinner_list.append('Leftovers')
+        continue
+    dinner_choice = random.choice(dinner_options)
+    dinner_list.append(dinner_choice)
+    #Remove dinner selection from list before making next selection
+    dinner_options.remove(dinner_choice)
 #Change dinner choices if nachoes or taco dip found but tacoes are
 #not a meal that week
-if 'Nachos' in dinnerList:
-    if 'Tacos' not in dinnerList:
-        dinnerList.remove('Nachos')
-        randomNumber = random.randint(0,(len(dinnerOptions) - 1))
-        dinnerChoice = dinnerOptions[randomNumber]
-        dinnerList.append(dinnerChoice)
-        dinnerOptions.remove(dinnerChoice)
-if 'Taco Dip' in dinnerList:
-    if 'Tacos' not in dinnerList:
-        dinnerList.remove('Taco Dip')
-        randomNumber = random.randint(0,(len(dinnerOptions) - 1))
-        dinnerChoice = dinnerOptions[randomNumber]
-        dinnerList.append(dinnerChoice)
-        dinnerOptions.remove(dinnerChoice)
+if 'Tacos' not in dinner_list:
+    for f in ('Nachos', 'Taco Dip'):
+        if f in dinner_list:
+            dinner_list.remove(f)
+            dinner_choice = random.choice(dinner_options)
+            dinner_list.append(dinner_choice)
+            dinner_options.remove(dinner_choice)
 #Loop thru dinnerList, assign to days, and get ingredients needed
 #print week menu plan
-dinnerMenu = []
+dinner_menu = []
 print('Dinners this week')
-for i in range (0, 7):
-    if i == 0:
-        day = "Sunday: "
-    elif i == 1:
-        day = "Monday: "
-    elif i == 2:
-        day = "Tuesday: "
-    elif i == 3:
-        day = "Wednesday: "
-    elif i == 4:
-        day = "Thursday: "
-    elif i == 5:
-        day = "Friday: "
-    elif i == 6:
-        day = "Saturday: "
-    else:
-        day = "Anyday: "
-    dinnerChoice = dinnerList[i]
-    print(day + dinnerChoice)
-    dinnerMenu.append((day + dinnerChoice))
-    if dinnerChoice != 'Leftovers':
-        foundIngredients = dinnerIngredients[dinnerChoice]
-        allIngredients.append(dinnerChoice + ':')
-        allIngredients.append(foundIngredients)
+for dinner_choice in dinner_list:
+    try:
+        day = calendar.day_name[i-1]
+    except IndexError:
+        day = "Anyday"
+
+    day = "{}: ".format(day)
+    #dinner_choice = dinner_list[i]
+    print(day + dinner_choice)
+    dinner_menu.append((day + dinner_choice))
+    if dinner_choice != 'Leftovers':
+        found_ingredients = dinner_ingredients[dinner_choice]
+        all_ingredients.append(dinner_choice + ':')
+        all_ingredients.append(found_ingredients)
+
 print('\nIngredients:')
-print('\n'.join(allIngredients))
+print('\n'.join(all_ingredients))
 
 #TODO: Format as shopping list with number of each item
 
