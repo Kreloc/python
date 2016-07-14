@@ -31,7 +31,7 @@ dinnerOptions = ['breakfast burritos',
 'Chili dogs',
 'Frito Pie',
 'Taco salad',
-'Nachoes',
+'Nachos',
 'Rib eye steak',
 'Chicken fried steak',
 'Tri tip sandwich',
@@ -47,7 +47,7 @@ dinnerOptions = ['breakfast burritos',
 'Beer battered halibut',
 'Trout',
 'Blackened salmon',
-'Tacoes',
+'Tacos',
 'Shrimp scampi',
 'White bean chicken chili',
 'Chicken wings']
@@ -82,7 +82,7 @@ dinnerIngredients = {
 'Chili dogs': 'Chili, hot dogs, hot dog buns, cheese, jalapenos',
 'Frito Pie': 'Fritos, chili, corn, diced tomatoes, jalapenos',
 'Taco salad': 'Ground turkey, tortillas, shredded cheese, olives, beans, sour cream',
-'Nachoes': 'Ground turkey/leftover tacoes, shredded cheese, jalapenos, tortilla chips',
+'Nachos': 'Ground turkey/leftover tacoes, shredded cheese, jalapenos, tortilla chips',
 'Rib eye steak': 'Rib eye steak, rapsberry chipolte sauce',
 'Chicken fried steak': 'Round steak, crackers, eggs, shortening',
 'Tri tip sandwich': 'Tri tip steak, mushrooms, itlaian bread, mozzarella cheese',
@@ -98,48 +98,12 @@ dinnerIngredients = {
 'Beer battered halibut': 'Halibut, batter, beer, shortening',
 'Trout': 'Trout, shortening, cornmeal',
 'Blackened salmon': 'Salmon, butter, blackened seasonings',
-'Tacoes': 'Ground turkery, taco seasoning, tortillas, shredded cheese, lettuce, olives, avocado, sour cream',
+'Tacos': 'Ground turkery, taco seasoning, tortillas, shredded cheese, lettuce, olives, avocado, sour cream',
 'Shrimp scampi': 'Shrimp, butter, garlic, noodles',
 'White bean chicken chili': 'White beans, chicken meat, olive oil, onion (chopped), chicken stock, salsa verde, ground cumin, coriander, two jalapenos, salt, ground white pepper, white corn',
 'Chicken wings': 'Chicken wings'
     }
 
-
-#Pick random dinner
-#randomNumber = random.randint(0,(len(dinnerOptions) - 1))
-#print('Dinner tonight is ' + dinnerOptions[randomNumber])
-#Get week worth of dinners
-####allIngredients = []
-####for i in range(0, 7):
-####    if i == 0:
-####        day = "Sunday"
-####    elif i == 1:
-####        day = "Monday"
-####    elif i == 2:
-####        day = "Tuesday"
-####    elif i == 3:
-####        day = "Wednesday"
-####    elif i == 4:
-####        day = "Thursday"
-####    elif i == 5:
-####        day = "Friday"
-####    elif i == 6:
-####        day = "Saturday"
-####    else:
-####        day = "Anyday"
-####    randomNumber = random.randint(0,(len(dinnerOptions) - 1))
-####    print('Dinner on ' + day + ' is ' + dinnerOptions[randomNumber])
-####    dinnerChoice = dinnerOptions[randomNumber]
-####    #print('Ingredients needed: ')
-####    #print(dinnerIngredients[dinnerChoice])
-####    foundIngredients = dinnerIngredients[dinnerChoice]
-####    allIngredients.append(dinnerChoice + ':')
-####    allIngredients.append(foundIngredients)
-####Remove dinner selection from list before making next selection
-####    del dinnerOptions[randomNumber]
-####Create shopping list
-####print('\n'.join(allIngredients))
-#Get week worth of dinners setting one day after Tuesday as leftovers day
 allIngredients = []
 dinnerList = []
 leftoverDaySet = False

@@ -1,3 +1,4 @@
+#! python3
 # getDinnerMenu - a function to get a weekly dinner menu.
 
 import random, re
@@ -123,6 +124,7 @@ def getDinnerMenu(numberOfDays):
             dinnerChoice = dinnerOptions[randomNumber]
             dinnerList.append(dinnerChoice)
         #Remove dinner selection from list before making next selection
+        dinnerOptions.remove(dinnerChoice)
     #Change dinner choices if nachoes or taco dip found but tacoes are
     #not a meal that week
     if 'Nachos' in dinnerList:
@@ -131,12 +133,14 @@ def getDinnerMenu(numberOfDays):
             randomNumber = random.randint(0,(len(dinnerOptions) - 1))
             dinnerChoice = dinnerOptions[randomNumber]
             dinnerList.append(dinnerChoice)
+            dinnerOptions.remove(dinnerChoice)
     if 'Taco Dip' in dinnerList:
         if 'Tacos' not in dinnerList:
             dinnerList.remove('Taco Dip')
             randomNumber = random.randint(0,(len(dinnerOptions) - 1))
             dinnerChoice = dinnerOptions[randomNumber]
             dinnerList.append(dinnerChoice)
+            dinnerOptions.remove(dinnerChoice)
     #Loop thru dinnerList, assign to days, and get ingredients needed
     print('\n'.join(dinnerList))
     #print week menu plan
