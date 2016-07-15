@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 import random
 import json
+import datetime
 app = Flask(__name__)
 app.secret_key = 'This is really unique and secret'
 
@@ -72,6 +73,9 @@ def getDinnerMenu():
     #final_output.append(all_ingredients)
     for ingredient_list in all_ingredients:
         final_output.append(ingredient_list)
+    now = datetime.datetime.now()
+    date_string = ('Menu generated on ' + (str(now.month)) + '-' + (str(now.day)) + '-' + str((now.year)))
+    final_output.append(date_string)
     #TODO: Format as shopping list with number of each item
     #TODO: Output text file for each week
     ##    #TODO: Remove past dinner text files
