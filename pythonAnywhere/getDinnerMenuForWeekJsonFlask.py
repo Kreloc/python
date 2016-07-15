@@ -68,7 +68,7 @@ def getDinnerMenu():
             all_ingredients.append(dinner_choice + ':')
             all_ingredients.append(found_ingredients)
 
-    final_output.append('\nIngredients:')
+    final_output.append('Ingredients:')
     #final_output.append(all_ingredients)
     for ingredient_list in all_ingredients:
         final_output.append(ingredient_list)
