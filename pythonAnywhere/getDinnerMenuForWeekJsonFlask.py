@@ -69,7 +69,9 @@ def getDinnerMenu():
             all_ingredients.append(found_ingredients)
 
     final_output.append('\nIngredients:')
-    final_output.append(all_ingredients)
+    #final_output.append(all_ingredients)
+    for ingredient_list in all_ingredients:
+        final_output.append(ingredient_list)
     #TODO: Format as shopping list with number of each item
     #TODO: Output text file for each week
     ##    #TODO: Remove past dinner text files
