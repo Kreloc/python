@@ -57,6 +57,21 @@ dinner_ingredients = {
 #Define dinner options
 dinner_options = [x for x in dinner_ingredients.keys()]
 
+#TODO: Parse text file(s) and remove dinner options found from the past
+#two weeks
+week_number = 0
+if os.path.isfile('dinner_week_one.txt') == True:
+    week_number = 1
+    dinner_file = open('dinner_week_one.txt')
+    for dinner_choice in dinner_file.readlines():
+        dinner_options.remove(dinner_choice)
+
+if os.path.isfile('dinner_week_two.txt') == True:
+    week_number = 2
+    dinner_file = open('dinner_week_two.txt')
+    for dinner_choice in dinner_file.readlines():
+        dinner_options.remove(dinner_choice)
+
 all_ingredients = []
 dinner_list = []
 #leftover_day_set = False
@@ -107,8 +122,12 @@ print('\nIngredients:')
 print('\n'.join(all_ingredients))
 #TODO: Format as shopping list with number of each item
 #TODO: Output text file for each week
-dinner_file = open('dinner_week_one.txt', 'w')
-dinner_file.write('\n'.join(dinner_list))
-dinner_file.close()
-#TODO: Parse text file and remove dinner options found from the past
-#two weeks
+if week_number == 0:
+    dinner_file = open('dinner_week_one.txt', 'w')
+    dinner_file.write('\n'.join(dinner_list))
+    dinner_file.close()
+elif week_number == 1:
+    dinner_file = open('dinner_week_two.txt', 'w')
+    dinner_file.write('\n'.join(dinner_list))
+    dinner_file.close()    
+
