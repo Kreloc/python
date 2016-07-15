@@ -2,7 +2,7 @@
 # getDinnerSelection - Gets dinner selection for the week from list in script
 
 import random
-import os
+#import os
 #Dictionary of dinners and their ingeredients
 dinner_ingredients = {
 'breakfast burritos': 'Eggs, tortillas(Burrito size), maple sausage, cheese, sour cream',
@@ -107,8 +107,8 @@ print('\nIngredients:')
 print('\n'.join(all_ingredients))
 #TODO: Format as shopping list with number of each item
 #TODO: Output text file for each week
-dinner_file = open('dinner_week_one.txt', 'w')
-dinner_file.write('\n'.join(dinner_list))
-dinner_file.close()
+#dinner_file = open('dinner_week_one.txt', 'w')
+#dinner_file.write('\n'.join(dinner_list))
+#dinner_file.close()
 #TODO: Parse text file and remove dinner options found from the past
 #two weeks

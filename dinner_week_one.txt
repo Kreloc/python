@@ -1,7 +1,1 @@
-meatloaf
-Hot dogs
-Teriyaki chicken burgers
-Chicken fried steak
-Leftovers
-chicken enchiladas
-Chicken and Green Beans
+Chicken fried steak,Frito Pie,Taco salad,chicken enchiladas,Tacos,Nachos

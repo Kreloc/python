@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+	  <h1>Dinner Menu</h1>
+	  {% for page in pages%}
+	  <p>{{ page }}</p>
+	  {% endfor %}
+{% endblock %}
