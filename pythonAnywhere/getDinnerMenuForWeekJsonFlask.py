@@ -22,7 +22,7 @@ def getDinnerMenu():
     #Define dinner options
     dinner_ingredients = json_data
     dinner_options = list(json_data.keys())
-    #TODO: Determine week number
+    #Determine week number
     now = datetime.datetime.now()
     calendar.setfirstweekday(6)
     weeks = calendar.monthcalendar(now.year, now.month)
@@ -140,3 +140,4 @@ def getDinnerMenu():
         dinner_file.close()    
     ##    #TODO: Remove past dinner text files
     return render_template('index.html', pages=final_output)
+#TODO: Add save button to recipe page
